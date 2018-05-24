@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>Расширение заголовка экрана SAP GUI</title>
+      <link href="/2018/05/23/sap-easy-access-guixt/"/>
+      <url>/2018/05/23/sap-easy-access-guixt/</url>
+      <content type="html"><![CDATA[<h4 id="Расширение-заголовка-экрана-SAP-GUI"><a href="#Расширение-заголовка-экрана-SAP-GUI" class="headerlink" title="Расширение заголовка экрана SAP GUI"></a>Расширение заголовка экрана SAP GUI</h4><p>Очень полезное расширение заголовка экрана SAP GUI можно сделать с использованием GuiXT.<br>Если работаешь с большим набором систем и мандантов начинает трудно ориентироваться в многочисленных окнах GUI (можно конечно цветом их раскрасить, но не всегда удобно).<br>Данное расширение дополнительно выводит в заголовок SID системы, мандант и имя пользователя.<br><img src="/2018/05/23/sap-easy-access-guixt/result.png"><br><a id="more"></a><br>Способ был позаимствован в комментариях к <a href="https://sapland.ru/kb/articles/spj/s-pomoschiyu-guixt-vi-mozhete-svyazati-fotografii-i-rekomendatsii-v-module-hr.html" target="_blank" rel="noopener">статье на SAP Land</a>.</p><h5 id="1-Активация-GUIXT"><a href="#1-Активация-GUIXT" class="headerlink" title="1. Активация GUIXT"></a>1. Активация GUIXT</h5><p>В SAP GUI нажимаем кнопку настроек и в выпадающем меню активируем GuiXT.<br><img src="/2018/05/23/sap-easy-access-guixt/guixt_activate.png"></p><h5 id="2-Создание-скрипта"><a href="#2-Создание-скрипта" class="headerlink" title="2. Создание скрипта"></a>2. Создание скрипта</h5><p>В любой доступной папке на локальном компьютере создаем файл <code>session.txt</code> с содержимым: </p><pre><code>TitlePrefix &quot;&amp;V[_database]_&amp;V[_client]_[&amp;V[_user]]&quot;</code></pre><p>Оператор TitlePrefix добавляет информацию ДО фразы SAP Easy Access.<br>Еще можно добавить язык, тогда <code>session.txt</code> будет иметь вид:</p><pre><code>TitlePrefix &quot;&amp;V[_database]_&amp;V[_client]_[&amp;V[_user]]_&amp;V[_language2]&quot;</code></pre><p>Оператор TitleSuffix добавляет информацию ПОСЛЕ фразы SAP Easy Access.<br>Например для вывода после фразы SAP Easy Access версии SAPGUI необходимо <strong>дополнить</strong>  <code>session.txt</code>  строкой:</p><pre><code>TitleSuffix &quot;SAPGUIver: &amp;V[_sapgui_version]&quot;</code></pre><h5 id="3-Настройка-GuiXT"><a href="#3-Настройка-GuiXT" class="headerlink" title="3. Настройка GuiXT"></a>3. Настройка GuiXT</h5><p>GuiXT по умолчанию запускается в скрытом режиме, поэтому идем в консоль <code>cmd</code>.<br>Переходим в папку с GuiXT:</p><pre><code>cd C:\Program Files (x86)\SAP\FrontEnd\SAPgui</code></pre><p>Запускаем GuiXT в видимом режиме:</p><pre><code>guixt.exe visible</code></pre><p>Входим в профайл, указываем путь к файлу скрипта <code>session.txt</code>, ставим условие не использования ключа языка в имени файла, сохраняем.</p><img src="/2018/05/23/sap-easy-access-guixt/guixt_profile.png"><h5 id="4-Наслаждаемся-результатом"><a href="#4-Наслаждаемся-результатом" class="headerlink" title="4. Наслаждаемся результатом"></a>4. Наслаждаемся результатом</h5><img src="/2018/05/23/sap-easy-access-guixt/result.png">]]></content>
+      
+      <categories>
+          
+          <category> Полезности </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GuiXT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Моя первая заметка</title>
       <link href="/2018/05/01/my-first-post/"/>
       <url>/2018/05/01/my-first-post/</url>
