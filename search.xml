@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>Преобразование типов STRING&lt;-&gt;XSTRING</title>
+      <link href="/2018/06/03/string-xstring/"/>
+      <url>/2018/06/03/string-xstring/</url>
+      <content type="html"><![CDATA[<p>Преобразование из переменной типа <code>STRING</code> в переменную типа <code>XSTRING</code> и обратно проще всего выполнить с помощью функциональных модулей <code>HR_KR_STRING_TO_XSTRING</code> и <code>HR_KR_XSTRING_TO_STRING</code></p><a id="more"></a><pre><code>DATA: lv_str_1 TYPE string,      lv_str_2 TYPE string,      lv_xstr  TYPE xstring.lv_str_1 = &apos;Тестовая строка для преобразования&apos;.CALL FUNCTION &apos;HR_KR_STRING_TO_XSTRING&apos;  EXPORTING*   CODEPAGE_TO  = &apos;8500&apos;unicode_string   = lv_str_1  IMPORTINGxstring_stream   = lv_xstr  EXCEPTIONSinvalid_codepage = 1invalid_string   = 2OTHERS   = 3.CALL FUNCTION &apos;HR_KR_XSTRING_TO_STRING&apos;  EXPORTING*   FROM_CODEPAGE   = &apos;8500&apos;in_xstring  = lv_xstr  IMPORTINGOUT_STRING  = lv_str_2.ASSERT lv_str_1 = lv_str_2.</code></pre>]]></content>
+      
+      <categories>
+          
+          <category> ABAP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Полезные функции </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Расширение заголовка экрана SAP GUI</title>
       <link href="/2018/05/23/sap-easy-access-guixt/"/>
       <url>/2018/05/23/sap-easy-access-guixt/</url>

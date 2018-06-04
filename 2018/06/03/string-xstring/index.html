@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Расширение заголовка экрана SAP GUI | Abaper.pro</title>
+  <title>Преобразование типов STRING&lt;-&gt;XSTRING | Abaper.pro</title>
   <meta name="author" content="Abaper.pro">
   
-  <meta name="description" content="Расширение заголовка экрана SAP GUIОчень полезное расширение заголовка экрана SAP GUI можно сделать с использованием GuiXT.Если работаешь с большим набором систем и мандантов начинает трудно ориентироваться в многочисленных окнах GUI (можно конечно цветом их раскрасить, но не всегда удобно).Данное расширение дополнительно выводит в заголовок SID системы, мандант и имя пользователя.">
+  <meta name="description" content="Преобразование из переменной типа STRING в переменную типа XSTRING и обратно проще всего выполнить с помощью функциональных модулей HR_KR_STRING_TO_XSTRING и HR_KR_XSTRING_TO_STRING">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Расширение заголовка экрана SAP GUI"/>
+  <meta property="og:title" content="Преобразование типов STRING&lt;-&gt;XSTRING"/>
   <meta property="og:site_name" content="Abaper.pro"/>
 
   
@@ -106,7 +106,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Расширение заголовка экрана SAP GUI</h1>
+			<h1 class="title title-inverse "> Преобразование типов STRING&lt;-&gt;XSTRING</h1>
 		</div>		
 	
 
@@ -126,21 +126,32 @@
 	<div class="mypage">		
 	  		
 
-	  <h4 id="Расширение-заголовка-экрана-SAP-GUI"><a href="#Расширение-заголовка-экрана-SAP-GUI" class="headerlink" title="Расширение заголовка экрана SAP GUI"></a>Расширение заголовка экрана SAP GUI</h4><p>Очень полезное расширение заголовка экрана SAP GUI можно сделать с использованием GuiXT.<br>Если работаешь с большим набором систем и мандантов начинает трудно ориентироваться в многочисленных окнах GUI (можно конечно цветом их раскрасить, но не всегда удобно).<br>Данное расширение дополнительно выводит в заголовок SID системы, мандант и имя пользователя.<br><img src="/2018/05/23/sap-easy-access-guixt/result.png"><br><a id="more"></a><br>Способ был позаимствован в комментариях к <a href="https://sapland.ru/kb/articles/spj/s-pomoschiyu-guixt-vi-mozhete-svyazati-fotografii-i-rekomendatsii-v-module-hr.html" target="_blank" rel="noopener">статье на SAP Land</a>.</p>
-<h5 id="1-Активация-GUIXT"><a href="#1-Активация-GUIXT" class="headerlink" title="1. Активация GUIXT"></a>1. Активация GUIXT</h5><p>В SAP GUI нажимаем кнопку настроек и в выпадающем меню активируем GuiXT.<br><img src="/2018/05/23/sap-easy-access-guixt/guixt_activate.png"></p>
-<h5 id="2-Создание-скрипта"><a href="#2-Создание-скрипта" class="headerlink" title="2. Создание скрипта"></a>2. Создание скрипта</h5><p>В любой доступной папке на локальном компьютере создаем файл <code>session.txt</code> с содержимым: </p>
-<pre><code>TitlePrefix &quot;&amp;V[_database]_&amp;V[_client]_[&amp;V[_user]]&quot;
-</code></pre><p>Оператор TitlePrefix добавляет информацию ДО фразы SAP Easy Access.<br>Еще можно добавить язык, тогда <code>session.txt</code> будет иметь вид:</p>
-<pre><code>TitlePrefix &quot;&amp;V[_database]_&amp;V[_client]_[&amp;V[_user]]_&amp;V[_language2]&quot;
-</code></pre><p>Оператор TitleSuffix добавляет информацию ПОСЛЕ фразы SAP Easy Access.<br>Например для вывода после фразы SAP Easy Access версии SAPGUI необходимо <strong>дополнить</strong>  <code>session.txt</code>  строкой:</p>
-<pre><code>TitleSuffix &quot;SAPGUIver: &amp;V[_sapgui_version]&quot;
-</code></pre><h5 id="3-Настройка-GuiXT"><a href="#3-Настройка-GuiXT" class="headerlink" title="3. Настройка GuiXT"></a>3. Настройка GuiXT</h5><p>GuiXT по умолчанию запускается в скрытом режиме, поэтому идем в консоль <code>cmd</code>.<br>Переходим в папку с GuiXT:</p>
-<pre><code>cd C:\Program Files (x86)\SAP\FrontEnd\SAPgui
-</code></pre><p>Запускаем GuiXT в видимом режиме:</p>
-<pre><code>guixt.exe visible
-</code></pre><p>Входим в профайл, указываем путь к файлу скрипта <code>session.txt</code>, ставим условие не использования ключа языка в имени файла, сохраняем.</p>
-<img src="/2018/05/23/sap-easy-access-guixt/guixt_profile.png">
-<h5 id="4-Наслаждаемся-результатом"><a href="#4-Наслаждаемся-результатом" class="headerlink" title="4. Наслаждаемся результатом"></a>4. Наслаждаемся результатом</h5><img src="/2018/05/23/sap-easy-access-guixt/result.png">	  
+	  <p>Преобразование из переменной типа <code>STRING</code> в переменную типа <code>XSTRING</code> и обратно проще всего выполнить с помощью функциональных модулей <code>HR_KR_STRING_TO_XSTRING</code> и <code>HR_KR_XSTRING_TO_STRING</code></p>
+<a id="more"></a>
+<pre><code>DATA: lv_str_1 TYPE string,
+      lv_str_2 TYPE string,
+      lv_xstr  TYPE xstring.
+lv_str_1 = &apos;Тестовая строка для преобразования&apos;.
+CALL FUNCTION &apos;HR_KR_STRING_TO_XSTRING&apos;
+  EXPORTING
+*   CODEPAGE_TO  = &apos;8500&apos;
+unicode_string   = lv_str_1
+  IMPORTING
+xstring_stream   = lv_xstr
+  EXCEPTIONS
+invalid_codepage = 1
+invalid_string   = 2
+OTHERS   = 3.
+
+CALL FUNCTION &apos;HR_KR_XSTRING_TO_STRING&apos;
+  EXPORTING
+*   FROM_CODEPAGE   = &apos;8500&apos;
+in_xstring  = lv_xstr
+  IMPORTING
+OUT_STRING  = lv_str_2.
+
+ASSERT lv_str_1 = lv_str_2.
+</code></pre>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -151,14 +162,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2018/06/03/string-xstring/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Предыдущая</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Предыдущая</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Архив</a></li>
 
 		
-		   <li class="next"><a href="/2018/05/01/my-first-post/" class="alignright next">Следующая<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2018/05/23/sap-easy-access-guixt/" class="alignright next">Следующая<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -193,7 +204,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	23.05.2018 
+	03.06.2018 
 	</div>
 	
 
@@ -204,7 +215,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Полезности/">Полезности<span>1</span></a></li>
+    <li><a href="/categories/ABAP/">ABAP<span>1</span></a></li>
   </li>
 
     </ul>
@@ -217,7 +228,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/GuiXT/">GuiXT<span>1</span></a></li>
+  <li><a href="/tags/Полезные-функции/">Полезные функции<span>1</span></a></li>
     </ul>
 	</div>
 	
