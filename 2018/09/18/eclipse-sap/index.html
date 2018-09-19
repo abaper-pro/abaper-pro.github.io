@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Полезные ссылки | Abaper.pro</title>
+  <title>Подготовка Eclipse для разработки на SAP | Abaper.pro</title>
   <meta name="author" content="Abaper.pro">
   
-  <meta name="description" content="Online компиляторы и другие инструментыhttps://regex101.com - онлайн редактор регулярных выражений с тестированием и генератором кода на разные языки ">
+  <meta name="description" content="Подготовка Eclipse выполняется просто и описана в десятках мануалов.">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Полезные ссылки"/>
+  <meta property="og:title" content="Подготовка Eclipse для разработки на SAP"/>
   <meta property="og:site_name" content="Abaper.pro"/>
 
   
@@ -108,9 +108,11 @@
   <div class="container">
   	<div class="content">
     	 
+
+
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Полезные ссылки</h1>
+			<h1 class="title title-inverse "> Подготовка Eclipse для разработки на SAP</h1>
 		</div>		
 	
 
@@ -119,19 +121,61 @@
 
 
 
-<div class="row page">
+<div class="row post">
 	<!-- cols -->
 	
-	<div class="col-md-12">
+	<div id="top_meta"></div>
+	<div class="col-md-9">
 	
 
 	<!-- content -->
 	<div class="mypage">		
 	  		
 
-	  <h3 id="Online-компиляторы-и-другие-инструменты"><a href="#Online-компиляторы-и-другие-инструменты" class="headerlink" title="Online компиляторы и другие инструменты"></a>Online компиляторы и другие инструменты</h3><p><a href="https://regex101.com" title="https://regex101.com" target="_blank" rel="noopener">https://regex101.com</a> - онлайн редактор регулярных выражений с тестированием и генератором кода на разные языки (Python в том числе) </p>
-<p><a href="http://codepen.io" title="http://codepen.io" target="_blank" rel="noopener">http://codepen.io</a> - CodePen инструмент для фронт-энд разработки, позволяющий легко оперировать с CSS/HTML/JS-конструкциями, позволяет подключать js-библиотеки: jQuery, MooTools и т.д. В нем вы можете делать предварительные просмотр и отладку, в онлайн режиме.</p>
-<p><a href="https://jsfiddle.net" title="https://jsfiddle.net" target="_blank" rel="noopener">https://jsfiddle.net</a> - JS Fiddle Один из самых популярных инструментов для работы с JavaScript/HTML/CSS/SCSS. Прост, удобен, умеет подключать дополнительные библиотеки. Можно писать и выполнять код, используя отдельные панели для JavaScript, CSS, HTML. Вы можете использовать JS Fiddle для распространения снипетов, анализа кода, тестирования, отладки в режиме реального времени. </p>
+	  <p>Подготовка Eclipse выполняется просто и описана в десятках мануалов.<br><a id="more"></a><br>Последовательность действий:</p>
+<ol>
+<li>Устанавливаем Eclipse<ul>
+<li>переходим на <a href="https://www.eclipse.org/downloads/packages" target="_blank" rel="noopener">https://www.eclipse.org/downloads/packages</a></li>
+<li>качаем <strong>Eclipse IDE for Java EE Developers</strong>    <blockquote>
+<p><em>если планируется соединяться с SAP Cloud Platform (SCP),</em><br><em>то качать надо версию Neon(4.6), остальные пока</em><br><em>не поддерживают работу с облачной HANA,</em><br><em>хотя для SCP WEB инструменты лучше</em></p>
+</blockquote>
+</li>
+<li>запускаем установку    </li>
+</ul>
+</li>
+<li>Устанавливаем плагины для SAP<ul>
+<li>запускаем Eclipse</li>
+<li>переходим по меню<br><code>Help-&gt;Install New Software</code>  </li>
+<li>добавляем URL <a href="https://tools.hana.ondemand.com/neon/" target="_blank" rel="noopener">https://tools.hana.ondemand.com/neon/</a>  <blockquote>
+<p><em>URL зависит от версии Eclipse, в примере Neon(4.6)</em></p>
+</blockquote>
+</li>
+<li>выбираем всё (ABAP, HANA, SAPUI5 и т.п.) и ждем завершения установки   </li>
+</ul>
+</li>
+<li>Устанавливаем WEB сервер для тестирования SAPUI5 приложений <ul>
+<li>Переходим на <a href="https://tools.hana.ondemand.com/#cloud" target="_blank" rel="noopener">https://tools.hana.ondemand.com/#cloud</a></li>
+<li>ищем <strong>SAP Cloud Platform Neo Environment SDK</strong></li>
+<li>качаем архив   <blockquote>
+<p><em>я взял Java Web Tomcat 8</em>     </p>
+</blockquote>
+</li>
+<li>распаковываем архив в любую папку<blockquote>
+<p><em>я распаковал прямо в папку с Eclipse</em>     </p>
+</blockquote>
+</li>
+<li>в Eclipse переходим в настройки сервера<br><code>Window-&gt;Preferences-&gt;Server-&gt;Runtime Environmenrs</code></li>
+<li>и добавляем папку с нашим распакованным архивом</li>
+</ul>
+</li>
+<li>Вот и всё. Теперь в Eclipse можно:<ul>
+<li>программировать на ABAP</li>
+<li>создавать HANA артефакты</li>
+<li>разрабатывать приложения SAPUI5</li>
+<li>и еще делать разные вещи </li>
+</ul>
+</li>
+</ol>
 	  
 	</div>
 
@@ -143,6 +187,16 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Предыдущая</a></li>
+        
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Архив</a></li>
+
+		
+		   <li class="next"><a href="/2018/06/03/string-xstring/" class="alignright next">Следующая<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
 </ul>
 </div>
 
@@ -151,12 +205,69 @@
 
     <!-- share -->
     
+        
+
+        
+
+    
 	
 	<!-- comment -->
 	<!-- 
+<section id="comment">
+  <h2 class="title">Комментарии</h2>
+  
+</section>
+
 -->
 	</div> <!-- col-md-9/col-md-12 -->
 		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	18.09.2018 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/Eclipse/">Eclipse<span>1</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/Eclipse/">Eclipse<span>1</span></a></li> <li><a href="/tags/SAP/">SAP<span>1</span></a></li> <li><a href="/tags/SAPUI5/">SAPUI5<span>1</span></a></li> <li><a href="/tags/HANA/">HANA<span>1</span></a></li>
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
 		
 
 </div><!-- row -->

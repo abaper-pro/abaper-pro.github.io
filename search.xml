@@ -3,6 +3,33 @@
   
     
     <entry>
+      <title>Подготовка Eclipse для разработки на SAP</title>
+      <link href="/2018/09/18/eclipse-sap/"/>
+      <url>/2018/09/18/eclipse-sap/</url>
+      <content type="html"><![CDATA[<p>Подготовка Eclipse выполняется просто и описана в десятках мануалов.<br><a id="more"></a><br>Последовательность действий:</p><ol><li>Устанавливаем Eclipse<ul><li>переходим на <a href="https://www.eclipse.org/downloads/packages" target="_blank" rel="noopener">https://www.eclipse.org/downloads/packages</a></li><li>качаем <strong>Eclipse IDE for Java EE Developers</strong>    <blockquote><p><em>если планируется соединяться с SAP Cloud Platform (SCP),</em><br><em>то качать надо версию Neon(4.6), остальные пока</em><br><em>не поддерживают работу с облачной HANA,</em><br><em>хотя для SCP WEB инструменты лучше</em></p></blockquote></li><li>запускаем установку    </li></ul></li><li>Устанавливаем плагины для SAP<ul><li>запускаем Eclipse</li><li>переходим по меню<br><code>Help-&gt;Install New Software</code>  </li><li>добавляем URL <a href="https://tools.hana.ondemand.com/neon/" target="_blank" rel="noopener">https://tools.hana.ondemand.com/neon/</a>  <blockquote><p><em>URL зависит от версии Eclipse, в примере Neon(4.6)</em></p></blockquote></li><li>выбираем всё (ABAP, HANA, SAPUI5 и т.п.) и ждем завершения установки   </li></ul></li><li>Устанавливаем WEB сервер для тестирования SAPUI5 приложений <ul><li>Переходим на <a href="https://tools.hana.ondemand.com/#cloud" target="_blank" rel="noopener">https://tools.hana.ondemand.com/#cloud</a></li><li>ищем <strong>SAP Cloud Platform Neo Environment SDK</strong></li><li>качаем архив   <blockquote><p><em>я взял Java Web Tomcat 8</em>     </p></blockquote></li><li>распаковываем архив в любую папку<blockquote><p><em>я распаковал прямо в папку с Eclipse</em>     </p></blockquote></li><li>в Eclipse переходим в настройки сервера<br><code>Window-&gt;Preferences-&gt;Server-&gt;Runtime Environmenrs</code></li><li>и добавляем папку с нашим распакованным архивом</li></ul></li><li>Вот и всё. Теперь в Eclipse можно:<ul><li>программировать на ABAP</li><li>создавать HANA артефакты</li><li>разрабатывать приложения SAPUI5</li><li>и еще делать разные вещи </li></ul></li></ol>]]></content>
+      
+      <categories>
+          
+          <category> Eclipse </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Eclipse </tag>
+            
+            <tag> SAP </tag>
+            
+            <tag> SAPUI5 </tag>
+            
+            <tag> HANA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Преобразование типов STRING&lt;-&gt;XSTRING</title>
       <link href="/2018/06/03/string-xstring/"/>
       <url>/2018/06/03/string-xstring/</url>
