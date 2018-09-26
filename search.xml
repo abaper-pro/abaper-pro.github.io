@@ -3,6 +3,35 @@
   
     
     <entry>
+      <title>Использование изображений в WEB приложениях</title>
+      <link href="/2018/09/25/use-image-in-webapp/"/>
+      <url>/2018/09/25/use-image-in-webapp/</url>
+      <content type="html"><![CDATA[<p>После деплоя приложения, разработанного на Web IDE (может и на Eclipse тоже), пропадают все картинки, хранящиеся в папке, размещенной в корне приложения, хотя при тестировании в Web IDE все было в порядке.<br><a id="more"></a><br>По непонятным причинам разработчики инструментов SAP используют разные пути к контенту при тестировании и после деплоя.<br>Для исправления ситуации необходимо в приложении хранить две идентичных папки с изображениями, одну в корне, другую в папке <code>webapp</code><br><img src="/2018/09/25/use-image-in-webapp/use_image_in_webapp.png"></p>]]></content>
+      
+      <categories>
+          
+          <category> Полезности </category>
+          
+          <category> Разработка Web приложений </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WebIDE </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> deploy </tag>
+            
+            <tag> Image </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Подготовка Eclipse для разработки на SAP</title>
       <link href="/2018/09/18/eclipse-sap/"/>
       <url>/2018/09/18/eclipse-sap/</url>
