@@ -3,6 +3,64 @@
   
     
     <entry>
+      <title>Как в ALV, созданного с помощью класса CL\_SALV\_TABLE, получить выделенные строки</title>
+      <link href="/2018/10/08/get-selections-salv/"/>
+      <url>/2018/10/08/get-selections-salv/</url>
+      <content type="html"><![CDATA[<p>После создания ALV, надо определить возможность выделения:</p><pre><code>go_salv-&gt;get_selections( )-&gt;set_selection_mode( if_salv_c_selection_mode=&gt;multiple ).</code></pre><p>Возможные способы можно посмотреть в константах <code>if_salv_c_selection_mode</code>  </p><p><strong>Неочевидность.</strong></p><p>Перед вызовом метода получения выделения необходимо вызвать метод ALV <code>get_metadata( )</code> иначе в <code>lt_rows</code> будет пусто.</p><pre><code>DATA: lt_rows       TYPE salv_t_row.go_salv-&gt;get_metadata( ).lt_rows = go_salv-&gt;get_selections( )-&gt;get_selected_rows( ).</code></pre>]]></content>
+      
+      <categories>
+          
+          <category> Полезности </category>
+          
+          <category> Разработка ABAP </category>
+          
+          <category> Неочевидность </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ABAP </tag>
+            
+            <tag> ALV </tag>
+            
+            <tag> GUI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Как у контейнера с разделителями `CL_GUI_SPLITTER_CONTAINER` получить положение разделителя</title>
+      <link href="/2018/10/07/get-splitter-pos/"/>
+      <url>/2018/10/07/get-splitter-pos/</url>
+      <content type="html"><![CDATA[<p><strong>Неочевидность.</strong><br>После вызова метода получения положения разделителя необходимо вызвать метод <code>cl_gui_cfw=&gt;flush( )</code> иначе в <code>lv_splitter_pos</code> будет старое значение.</p><pre><code>go_splitter_container-&gt;get_column_width( EXPORTING id = 1 IMPORTING result = lv_splitter_pos ).cl_gui_cfw=&gt;flush( ).</code></pre>]]></content>
+      
+      <categories>
+          
+          <category> Полезности </category>
+          
+          <category> Разработка ABAP </category>
+          
+          <category> Неочевидность </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ABAP </tag>
+            
+            <tag> ALV </tag>
+            
+            <tag> GUI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Использование изображений в WEB приложениях</title>
       <link href="/2018/09/25/use-image-in-webapp/"/>
       <url>/2018/09/25/use-image-in-webapp/</url>

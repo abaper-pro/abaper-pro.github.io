@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Использование изображений в WEB приложениях | Abaper.pro</title>
+  <title>Как в ALV, созданного с помощью класса CL\_SALV\_TABLE, получить выделенные строки | Abaper.pro</title>
   <meta name="author" content="Abaper.pro">
   
-  <meta name="description" content="После деплоя приложения, разработанного на Web IDE (может и на Eclipse тоже), пропадают все картинки, хранящиеся в папке, размещенной в корне приложения, хотя при тестировании в Web IDE все было в порядке.">
+  <meta name="description" content="После создания ALV, надо определить возможность выделения:
+go_salv-&amp;gt;get_selections( )-&amp;gt;set_selection_mode( if_salv_c_selection_mode=&amp;gt;multiple">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Использование изображений в WEB приложениях"/>
+  <meta property="og:title" content="Как в ALV, созданного с помощью класса CL\_SALV\_TABLE, получить выделенные строки"/>
   <meta property="og:site_name" content="Abaper.pro"/>
 
   
@@ -112,7 +113,7 @@
 
 	
 		<div class="page-header page-header-inverse ">		
-			<h1 class="title title-inverse "> Использование изображений в WEB приложениях</h1>
+			<h1 class="title title-inverse "> Как в ALV, созданного с помощью класса CL\_SALV\_TABLE, получить выделенные строки</h1>
 		</div>		
 	
 
@@ -132,8 +133,15 @@
 	<div class="mypage">		
 	  		
 
-	  <p>После деплоя приложения, разработанного на Web IDE (может и на Eclipse тоже), пропадают все картинки, хранящиеся в папке, размещенной в корне приложения, хотя при тестировании в Web IDE все было в порядке.<br><a id="more"></a><br>По непонятным причинам разработчики инструментов SAP используют разные пути к контенту при тестировании и после деплоя.<br>Для исправления ситуации необходимо в приложении хранить две идентичных папки с изображениями, одну в корне, другую в папке <code>webapp</code><br><img src="/2018/09/25/use-image-in-webapp/use_image_in_webapp.png"></p>
-	  
+	  <p>После создания ALV, надо определить возможность выделения:</p>
+<pre><code>go_salv-&gt;get_selections( )-&gt;set_selection_mode( if_salv_c_selection_mode=&gt;multiple ).
+</code></pre><p>Возможные способы можно посмотреть в константах <code>if_salv_c_selection_mode</code>  </p>
+<p><strong>Неочевидность.</strong></p>
+<p>Перед вызовом метода получения выделения необходимо вызвать метод ALV <code>get_metadata( )</code> иначе в <code>lt_rows</code> будет пусто.</p>
+<pre><code>DATA: lt_rows       TYPE salv_t_row.
+go_salv-&gt;get_metadata( ).
+lt_rows = go_salv-&gt;get_selections( )-&gt;get_selected_rows( ).
+</code></pre>	  
 	</div>
 
 	<!-- recommended posts -->
@@ -144,14 +152,14 @@
 	<div class="pagination">
 <ul class="pagination">
 	 
-				
-    	<li class="prev"><a href="/2018/10/07/get-splitter-pos/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Предыдущая</a></li>
-  		
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Предыдущая</a></li>
+        
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Архив</a></li>
 
 		
-		   <li class="next"><a href="/2018/09/18/eclipse-sap/" class="alignright next">Следующая<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+		   <li class="next"><a href="/2018/10/07/get-splitter-pos/" class="alignright next">Следующая<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
 	
 </ul>
@@ -186,7 +194,7 @@
 	
 	<div class="meta-widget">
 	<i class="fa fa-clock-o"></i>
-	25.09.2018 
+	08.10.2018 
 	</div>
 	
 
@@ -197,7 +205,7 @@
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a href="/categories/Полезности/">Полезности<span>4</span></a></li> <li><a href="/categories/Полезности/Разработка-Web-приложений/">Разработка Web приложений<span>1</span></a></li>
+    <li><a href="/categories/Полезности/">Полезности<span>4</span></a></li> <li><a href="/categories/Полезности/Разработка-ABAP/">Разработка ABAP<span>2</span></a></li> <li><a href="/categories/Полезности/Разработка-ABAP/Неочевидность/">Неочевидность<span>2</span></a></li>
   </li>
 
     </ul>
@@ -210,7 +218,7 @@
 	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
     <ul id="tags" class="tag_box list-unstyled collapse in">	  
 	    
-  <li><a href="/tags/WebIDE/">WebIDE<span>1</span></a></li> <li><a href="/tags/Web/">Web<span>1</span></a></li> <li><a href="/tags/deploy/">deploy<span>1</span></a></li> <li><a href="/tags/Image/">Image<span>1</span></a></li>
+  <li><a href="/tags/ABAP/">ABAP<span>2</span></a></li> <li><a href="/tags/ALV/">ALV<span>2</span></a></li> <li><a href="/tags/GUI/">GUI<span>2</span></a></li>
     </ul>
 	</div>
 	

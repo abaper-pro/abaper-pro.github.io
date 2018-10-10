@@ -128,6 +128,59 @@
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 08.10.2018 </div>
+			<div class="article-title"><a href="/2018/10/08/get-selections-salv/" >Как в ALV, созданного с помощью класса CL\_SALV\_TABLE, получить выделенные строки</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<p>После создания ALV, надо определить возможность выделения:</p>
+<pre><code>go_salv-&gt;get_selections( )-&gt;set_selection_mode( if_salv_c_selection_mode=&gt;multiple ).
+</code></pre><p>Возможные способы можно посмотреть в константах <code>if_salv_c_selection_mode</code>  </p>
+<p><strong>Неочевидность.</strong></p>
+<p>Перед вызовом метода получения выделения необходимо вызвать метод ALV <code>get_metadata( )</code> иначе в <code>lt_rows</code> будет пусто.</p>
+<pre><code>DATA: lt_rows       TYPE salv_t_row.
+go_salv-&gt;get_metadata( ).
+lt_rows = go_salv-&gt;get_selections( )-&gt;get_selected_rows( ).
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2018/10/08/get-selections-salv/#more" class="btn btn-default more">Дальше</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 07.10.2018 </div>
+			<div class="article-title"><a href="/2018/10/07/get-splitter-pos/" >Как у контейнера с разделителями `CL_GUI_SPLITTER_CONTAINER` получить положение разделителя</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<p><strong>Неочевидность.</strong><br>После вызова метода получения положения разделителя необходимо вызвать метод <code>cl_gui_cfw=&gt;flush( )</code> иначе в <code>lv_splitter_pos</code> будет старое значение.</p>
+<pre><code>go_splitter_container-&gt;get_column_width( EXPORTING id = 1 IMPORTING result = lv_splitter_pos ).
+cl_gui_cfw=&gt;flush( ).
+</code></pre>
+	
+	</div>
+  <a type="button" href="/2018/10/07/get-splitter-pos/#more" class="btn btn-default more">Дальше</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 25.09.2018 </div>
 			<div class="article-title"><a href="/2018/09/25/use-image-in-webapp/" >Использование изображений в WEB приложениях</a></div>						
 		</h3>
@@ -209,7 +262,11 @@
 		
 			<li><a href="/categories/Eclipse/">Eclipse<span>1</span></a></li>
 		
-			<li><a href="/categories/Полезности/">Полезности<span>2</span></a></li>
+			<li><a href="/categories/Полезности/Разработка-ABAP/Неочевидность/">Неочевидность<span>2</span></a></li>
+		
+			<li><a href="/categories/Полезности/">Полезности<span>4</span></a></li>
+		
+			<li><a href="/categories/Полезности/Разработка-ABAP/">Разработка ABAP<span>2</span></a></li>
 		
 			<li><a href="/categories/Полезности/Разработка-Web-приложений/">Разработка Web приложений<span>1</span></a></li>
 		
@@ -222,25 +279,31 @@
 		<h4>Облако меток</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Eclipse/">Eclipse<span>1</span></a></li>
+			<li><a href="/tags/HANA/">HANA<span>1</span></a></li>
 		
 			<li><a href="/tags/Web/">Web<span>1</span></a></li>
 		
-			<li><a href="/tags/WebIDE/">WebIDE<span>1</span></a></li>
+			<li><a href="/tags/SAPUI5/">SAPUI5<span>1</span></a></li>
 		
-			<li><a href="/tags/Полезные-функции/">Полезные функции<span>1</span></a></li>
+			<li><a href="/tags/GUI/">GUI<span>2</span></a></li>
+		
+			<li><a href="/tags/ALV/">ALV<span>2</span></a></li>
 		
 			<li><a href="/tags/GuiXT/">GuiXT<span>1</span></a></li>
 		
 			<li><a href="/tags/SAP/">SAP<span>1</span></a></li>
 		
-			<li><a href="/tags/Image/">Image<span>1</span></a></li>
+			<li><a href="/tags/Eclipse/">Eclipse<span>1</span></a></li>
 		
 			<li><a href="/tags/deploy/">deploy<span>1</span></a></li>
 		
-			<li><a href="/tags/HANA/">HANA<span>1</span></a></li>
+			<li><a href="/tags/ABAP/">ABAP<span>2</span></a></li>
 		
-			<li><a href="/tags/SAPUI5/">SAPUI5<span>1</span></a></li>
+			<li><a href="/tags/WebIDE/">WebIDE<span>1</span></a></li>
+		
+			<li><a href="/tags/Полезные-функции/">Полезные функции<span>1</span></a></li>
+		
+			<li><a href="/tags/Image/">Image<span>1</span></a></li>
 		
 		 
 		</ul>
@@ -254,6 +317,14 @@
   <ul class="entry list-unstyled">
     
       <li>
+        <a href="/2018/10/08/get-selections-salv/" ><i class="fa fa-file-o"></i>Как в ALV, созданного с пом...</a>
+      </li>
+    
+      <li>
+        <a href="/2018/10/07/get-splitter-pos/" ><i class="fa fa-file-o"></i>Как у контейнера с разделит...</a>
+      </li>
+    
+      <li>
         <a href="/2018/09/25/use-image-in-webapp/" ><i class="fa fa-file-o"></i>Использование изображений в...</a>
       </li>
     
@@ -263,14 +334,6 @@
     
       <li>
         <a href="/2018/06/03/string-xstring/" ><i class="fa fa-file-o"></i>Преобразование типов STRING...</a>
-      </li>
-    
-      <li>
-        <a href="/2018/05/23/sap-easy-access-guixt/" ><i class="fa fa-file-o"></i>Расширение заголовка экрана...</a>
-      </li>
-    
-      <li>
-        <a href="/2018/05/01/my-first-post/" ><i class="fa fa-file-o"></i>Моя первая заметка</a>
       </li>
     
   </ul>
